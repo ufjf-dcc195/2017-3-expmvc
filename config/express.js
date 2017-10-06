@@ -30,6 +30,7 @@ module.exports = function(){
   app.set('view engine', 'ejs');
 
   app.use(express.static('./public'));
+  require("../app/routes/usuario.routes")(app);
   require("../app/routes/index.routes")(app);
   return app;
 }
