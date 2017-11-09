@@ -10,3 +10,12 @@ module.exports.novoUsuario = function(req, res, next) {
     return next(err);
   });
 }
+module.exports.listarUsuario = function(req, res, next){
+  Usuario.find({}).then(
+    function(usuarios){
+      res.json(usuarios);
+    },
+    function(err){
+      return next(err);
+    });
+};
