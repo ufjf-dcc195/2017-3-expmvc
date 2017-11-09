@@ -4,7 +4,9 @@ module.exports = function (app) {
     .post(handlers.novoUsuario)
     .get(handlers.listarUsuario);
   app.route('/usuario/:usuarioId')
-    .get(handlers.detalhes);
+    .get(handlers.detalhes)
+    .put(handlers.editaUsuario)
+    .delete(handlers.removeUsuario);
 
   app.param('usuarioId', handlers.usuarioPorId);
 
