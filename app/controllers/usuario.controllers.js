@@ -19,3 +19,21 @@ module.exports.listarUsuario = function(req, res, next){
       return next(err);
     });
 };
+
+module.exports.detalhes = function(req, res, next){
+  res.json(req.usuario);
+};
+
+module.exports.usuarioPorId = function(req, res, next, id){
+  Usuario.findOne(
+    {"_id": id})
+    .then(
+    function(usuario) {
+      req.usuario = usuario;
+      next();
+    },
+    function (err){
+      next(err);
+    }
+);
+};
