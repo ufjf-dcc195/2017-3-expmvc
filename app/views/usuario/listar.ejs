@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lista de Usuários</title>
+  </head>
+  <body>
+    <h1>Lista de Usuários</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-Mail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%
+        for (var i in usuarios){
+          var usuario = usuarios[i];
+        %>
+        <tr>
+          <td><%=usuario.nome%></td>
+          <td><%=usuario.email%></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>

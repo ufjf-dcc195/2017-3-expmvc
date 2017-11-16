@@ -66,3 +66,13 @@ module.exports.removeUsuario = function(req, res, next){
     }
   );
 }
+
+module.exports.listarUsuarioHtml = function(req, res, next){
+  Usuario.find({}).then(
+    function(usuarios){
+      res.render('usuario/listar',{usuarios: usuarios});
+    },
+    function(err){
+      return next(err);
+    });
+};
