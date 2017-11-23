@@ -76,3 +76,32 @@ module.exports.listarUsuarioHtml = function(req, res, next){
       return next(err);
     });
 };
+
+module.exports.cadastrarUsuarioHtml = function(req, res, next){
+  if(req.method == 'GET'){
+    res.render('usuario/novo');
+  }
+  else if(req.method == 'POST'){
+    var novo = new Usuario(req.body);
+    novo.save().then(
+    function(u){
+      res.redirect("/usuario.html");
+    },
+    function(err){
+      return next(err);
+    });
+  }
+}
+
+module.exports.detalhesUsuarioHtml = function(req, res, next){
+  Usuario.findOne(
+    {"_id": req.query.id})
+    .then(
+    function(usuario) {
+      res.render('usuario/detalhes', {'usuario': usuario});
+    },
+    function (err){
+      next(err);
+    }
+);
+};

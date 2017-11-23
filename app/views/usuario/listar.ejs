@@ -19,7 +19,7 @@
           var usuario = usuarios[i];
         %>
         <tr>
-          <td><%=usuario.nome%></td>
+          <td><a href="/detalhes-usuario.html?id=<%=usuario._id%>"><%=usuario.nome%></a></td>
           <td><%=usuario.email%></td>
         </tr>
         <% } %>
